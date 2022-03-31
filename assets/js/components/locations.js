@@ -1,7 +1,33 @@
+const locationElements = [];
+
 export const locations = () => {
     document.querySelectorAll('.destinations__places article')
     .forEach((article) => {
         const location = new Location(article);
+        locationElements.push(location);
+    });
+
+    setLocationsDescriptionHeight();
+
+    window.addEventListener('resize', ()=>{
+        setLocationsDescriptionHeight();
+    });
+}
+
+const setLocationsDescriptionHeight = () => {
+    let maxHeight = 0;
+    locationElements.forEach((article) => {
+        const description = article.element.querySelector('.place_informations__description span');
+        
+        description.classList.remove('dblock');
+        
+        const heightDescription = description.offsetHeight;
+        if(heightDescription>maxHeight){
+            maxHeight = heightDescription;
+        }
+
+        description.style.height = maxHeight;
+        description.classList.add('dblock');
     });
 }
 
