@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 :root{
     --main-color: #29ABB7;
@@ -10,6 +11,7 @@
 body{
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     background-color: var(--third-color);
     color: var(--second-color);
     font-family: 'Poppins', sans-serif;
@@ -301,11 +303,79 @@ section{
     position: absolute;
     left: 50%;
     bottom: 0;
-    transform: translate(-50%,5px);
-    width: 260px;
-    height: 260px;
+    transform: translate(-50%,10px);
+    width: 250px;
+    height: 250px;
 }
 .quotation__cercles svg{
     width: 100%;
     height: 100%;
+}
+
+/* myliste section */
+.myliste__title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.myliste__title p{
+    text-align: center;
+}
+.myliste__title img{
+    width: 160px;
+    margin-bottom: 10px;
+}
+
+.myliste__list{
+    margin-top: 40px;
+    width: 100%;
+}
+.myliste__list ul{
+    display: flex;
+}
+.myliste__list li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: calc(33.33% - 33.33px);
+}
+.myliste__list li:not(:first-child){
+    margin-left: 50px;
+}
+
+.myliste__list .myliste_list__icon{
+    margin-right: 10px;
+}
+.myliste__list .myliste_list__icon svg{
+    width: 110px;
+    height: 110px;
+}
+
+.myliste_list__text{
+    display: flex;
+    flex-direction: column;
+}
+.myliste_list_text__title{
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--main-color);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.myliste_list_text__description{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.myliste__action{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.myliste__action a{
+    color: var(--second-color);
 }
