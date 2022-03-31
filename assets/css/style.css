@@ -19,6 +19,10 @@ body{
     width: 100%;
 }
 
+a{
+    color: var(--main-color);
+}
+
 .content{
     width: 100%;
     display: flex;
@@ -31,7 +35,8 @@ body{
     font-family: 'Kalam', cursive;
     font-weight: 500;
     color: var(--main-color);
-    margin: 0;
+    margin: 0 0 15px 0;
+    line-height: 50px;
 }
 
 .simple-text{
@@ -49,7 +54,8 @@ section{
     display: block;
 }
 
-/* destinations */
+/* destinations section */
+
 .destinations__places{    
     position: relative;
     margin-top: 30px;
@@ -133,4 +139,86 @@ section{
 }
 .destinations__places article .place_informations__score svg[data-visible="true"]{
     opacity: 1;
+}
+
+/* description section */
+.section_description{
+    margin-top: 40px;
+}
+
+.description__title h1,
+.description__title p{
+    text-align: center;
+}
+
+.description__benefits{
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.description_benefits__text{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.benefits_text__image{
+    width: 100%;
+}
+.benefits_text__title{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.benefits_text__description{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.description_benefits__list{
+    width: 50%;
+    padding-left: 70px;
+    box-sizing: border-box;
+}
+.description_benefits__list ul{
+    width: 100%;
+}
+
+.description_benefits__list li{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    list-style: none;
+}
+.description_benefits__list li:not(:last-child){
+    margin-bottom: 40px;
+}
+
+.description_benefits__list .benefits_list__icon{
+    margin-right: 70px;
+}
+.description_benefits__list .benefits_list__icon svg{
+    width: 75px;
+    height: 75px;
+}
+
+.benefits_list__text{
+    display: flex;
+    flex-direction: column;
+}
+.benefits_list_text__title{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.benefits_list_text__description{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
 }
