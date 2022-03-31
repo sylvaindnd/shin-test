@@ -29,7 +29,7 @@ body{
 .big-title{
     font-size: 42px;
     font-family: 'Kalam', cursive;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--main-color);
     margin: 0;
 }
@@ -40,6 +40,88 @@ body{
 }
 
 section{
+    padding: 20px 0;
     width: 85%;
     max-width: 1200px;
+}
+
+/* destinations */
+.destinations__places{    
+    position: relative;
+    margin-top: 30px;
+    width: 100%;    
+    height: fit-content;
+    display: flex;
+    overflow-x: auto;
+}
+
+.destinations__places article{
+    position: relative;
+    width: calc(25% - 30px);
+    min-width: calc(25% - 30px);
+    height: 370px;
+    background-color: green;
+    border-radius: 7px;
+    overflow: hidden;
+}
+.destinations__places article:not(:first-child){
+    margin-left: 40px;
+}
+
+.destinations__places article .place__image{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.destinations__places article .place__image::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 145px;
+    opacity: 0.8;
+    background: transparent;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
+}
+.destinations__places article .place__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destinations__places article .place__informations{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.destinations__places article .place_informations__location{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--third-color);
+    margin-bottom: 10px;
+}
+.destinations__places article .place_informations__location svg{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.destinations__places article .place_informations__description{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--third-color);
+    margin-bottom: 10px;
+}
+
+.destinations__places article .place_informations__score svg{
+    width: 16px;
+    height: 16px;
 }
