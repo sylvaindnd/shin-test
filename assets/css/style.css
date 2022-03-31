@@ -124,4 +124,9 @@ section{
 .destinations__places article .place_informations__score svg{
     width: 16px;
     height: 16px;
+    margin-right: 3px;
+    opacity: 0.5;
+}
+.destinations__places article .place_informations__score svg[data-visible="true"]{
+    opacity: 1;
 }
