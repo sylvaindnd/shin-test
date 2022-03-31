@@ -1,5 +1,3 @@
-import { addStarsToDestinations } from './components/destinationStars.js';
-import { addIconToLocations } from './components/destinationsLocation.js';
+import { locations } from './components/locations.js';
 
-addStarsToDestinations();
-addIconToLocations();
+locations();

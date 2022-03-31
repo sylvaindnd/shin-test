@@ -1,21 +1,23 @@
-export const addIconToLocations = () => {
+export const locations = () => {
     document.querySelectorAll('.destinations__places article')
     .forEach((article) => {
-        const placeContainer = article.querySelector('.place_informations__location');        
-        if(placeContainer){    
-            const location = new DestionationLocation(placeContainer);
-        }
+        const location = new Location(article);
     });
 }
 
-class DestionationLocation{
-    constructor(parent){
-        this.parent = parent;
-        this.addIcon();
+class Location{
+    constructor(element){
+        this.element = element;
+        this.addPointerIcon();
+        this.addScoreStars();
     }
 
-    addIcon(){
-        const textHtml = this.parent.querySelector('span').outerHTML;
+    addPointerIcon(){
+        const locationTitle = this.element.querySelector('.place_informations__location');
+        if(!locationTitle){
+            return;
+        }
+        const textHtml = locationTitle.querySelector('span').outerHTML;
         const iconHtml = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20.001" viewBox="0 0 20 20.001">
                             <defs>
                                 <clipPath id="clip-path">
@@ -28,7 +30,26 @@ class DestionationLocation{
                                 </g>
                             </g>
                         </svg>`;
-        console.log(textHtml)
-        this.parent.innerHTML = iconHtml + textHtml;
+        locationTitle.innerHTML = iconHtml + textHtml;
+    }
+
+    addScoreStars(){
+        const scoreContainer = this.element.querySelector('.place_informations__score');
+        if(!scoreContainer){
+            return;
+        }
+        const nbStars = parseInt(scoreContainer.getAttribute('data-stars'));
+        const score = parseInt(scoreContainer.getAttribute('data-score'));      
+        let starsHml = '';
+        for(let i=0; i < nbStars; i++){
+            let visible = true;
+            if(i >= score){
+                visible = false;
+            }
+            starsHml += `<svg data-visible="${visible}" xmlns="http://www.w3.org/2000/svg" width="16.168" height="15.377" viewBox="0 0 16.168 15.377">
+                            <path id="Star" d="M8.5,12.75l-5,2.627.954-5.563L.416,5.873,6,5.062,8.5,0,11,5.062l5.586.812-4.042,3.94.954,5.563Z" transform="translate(-0.416)" fill="#fff"/>
+                        </svg>`;  
+        }
+        scoreContainer.innerHTML = starsHml;
     }
 }
