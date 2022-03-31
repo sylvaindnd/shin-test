@@ -1,0 +1,61 @@
+@media screen and (max-width:1024px) {
+    
+    /* destinations sections */
+    .destinations__places article{
+        width: calc(33.4% - 20px);
+        min-width: calc(33.4% - 20px);
+    }
+    .destinations__places article:not(:first-child){
+        margin-left: 30px;
+    }
+
+    /* description section */
+    .description_benefits__list{
+        padding-left: 30px;
+    }
+
+    .description_benefits__list li{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .description_benefits__list .benefits_list__icon{
+        margin: 0;
+    }
+
+    /* quotation section */
+    .section_quotation{
+        margin-top: 115px;
+    }
+
+    .section_quotation::before{
+        width: 100%;
+    }
+
+    .quotation__action .big-title{
+        max-width: calc(100% - 30px);
+    }
+
+    .quotation__action .quotation_action__description{
+        max-width: calc(100% - 30px);
+    }
+
+    .quotation__image{
+        top: -70px;
+        left: 50%;
+    }
+
+    .quotation__cercles{
+        left: calc(50% + 59px);
+        bottom: -80px;
+    }
+
+    /* myliste section */
+    .myliste__list li{
+        flex-direction: column;
+    }
+    .myliste__list .myliste_list__icon{
+        transform: translateY(20px);
+        margin-right: 0;
+    }
+}

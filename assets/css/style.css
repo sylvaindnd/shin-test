@@ -313,6 +313,10 @@ section{
 }
 
 /* myliste section */
+.section_myliste{
+    margin-bottom: 20px;
+}
+
 .myliste__title{
     display: flex;
     flex-direction: column;
@@ -360,7 +364,6 @@ section{
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
     color: var(--main-color);
-    margin-top: 25px;
     margin-bottom: 10px;
 }
 .myliste_list_text__description{
@@ -370,7 +373,7 @@ section{
 }
 
 .myliste__action{
-    margin-top: 40px;
+    margin-top: 40px;    
     width: 100%;
     display: flex;
     justify-content: center;
