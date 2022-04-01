@@ -286,6 +286,13 @@ section{
     font-size: var(--font-size-4);
     font-weight: 600;
     text-decoration: none;
+    transform: translateY(0);
+    transition: background-color 0.3s var(--transition-func), color 0.3s var(--transition-func), transform 0.3s var(--transition-func);
+}
+.cta-button:hover{
+    background-color: var(--main-color);
+    color: var(--third-color);
+    transform: translateY(-7px);
 }
 
 /* destinations section */
@@ -508,6 +515,10 @@ section{
     margin-top: 30px;
     color: var(--third-color);
     border-color: var(--third-color);
+}
+.quotation__action .cta-button:hover{
+    background-color: var(--third-color);
+    color: var(--main-color);
 }
 
 .quotation__image{
