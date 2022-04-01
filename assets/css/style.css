@@ -13,6 +13,7 @@
     --font-size-5: 12px;
     --line-height-1: 50px;
     --line-height-2: 18px;
+    --transition-func: cubic-bezier(.5,0,.5,1);
 }
 
 body{
@@ -27,7 +28,10 @@ body{
 }
 
 #app{
+    position: relative;
     width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 a{
@@ -35,10 +39,15 @@ a{
 }
 
 .content{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(0,0);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.7s transform cubic-bezier(.18,.53,.17,1);
 }
 
 .big-title{
