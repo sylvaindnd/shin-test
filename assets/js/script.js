@@ -1,5 +1,7 @@
-import { locations } from './components/locations.js';
+import { loader } from './components/loader.js';
 import { app } from './components/app.js';
+import { locations } from './components/locations.js';
 
-locations();
+loader();
 app();
+locations();
