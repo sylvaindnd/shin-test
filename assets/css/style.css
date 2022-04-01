@@ -306,6 +306,7 @@ section{
     background-color: green;
     border-radius: 7px;
     overflow: hidden;
+    cursor: pointer;
 }
 .destinations__places article:not(:first-child){
     margin-left: 40px;
@@ -315,6 +316,9 @@ section{
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .destinations__places article .place__image::after{
     content: '';
@@ -331,6 +335,11 @@ section{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: width 0.5s var(--transition-func), height 0.5s var(--transition-func);
+}
+.destinations__places article:hover .place__image img{
+    width: 110%;
+    height: 110%;
 }
 
 .destinations__places article .place__informations{
@@ -362,6 +371,10 @@ section{
     line-height: var(--line-height-2);
     color: var(--third-color);
     margin-bottom: 10px;
+    transition: margin-bottom 0.5s var(--transition-func);
+}
+.destinations__places article:hover .place_informations__description{
+    margin-bottom: 20px;
 }
 
 .destinations__places article .place_informations__score svg{
