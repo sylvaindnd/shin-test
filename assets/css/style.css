@@ -6,6 +6,7 @@
     --main-color: #29ABB7;
     --second-color: #575757;
     --third-color: #FFFFFF;
+    --fourth-color: #000000;
     --font-size-1: 42px;
     --font-size-2: 22px;
     --font-size-3: 16px;
@@ -20,6 +21,7 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
     background-color: var(--third-color);
     color: var(--second-color);
     font-family: 'Poppins', sans-serif;
@@ -28,6 +30,7 @@ body{
 }
 
 #loader{
+    user-select: none;
     position: fixed;
     z-index: 999;
     width: 100%;
@@ -37,6 +40,37 @@ body{
     align-items: center;
     background-color: var(--third-color);
 }
+#loader::after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: 1;
+}
+#loader.complete{
+    pointer-events: none;
+}
+#loader.complete::after{
+    animation: 1.4s var(--transition-func) 0s 1 disappearLoaderAfter;
+}
+@keyframes disappearLoaderAfter { 
+    0%{
+        top: 100%;
+    }
+    40%{
+        top: 0;
+    }
+    60%{
+        top: 0;
+    }
+    100%{
+        top: -100%;
+    }
+}
+
 .loader_content{
     padding: 30px;
     box-sizing: border-box;
@@ -46,16 +80,23 @@ body{
 }
 
 .loader_title{
+    position: absolute;
+    bottom: 10%;
     font-size: var(--font-size-2);
-    color: var(--main-color);
-    margin-bottom: 50px;
+    color: var(--fourth-color);
 }
 
 .loader_animation{
+    opacity: 0;
+    transform: translateY(50px);
     position: relative;
     width: 250px;
     height: 250px;
-    /* background-color: yellow; */
+    transition: transform 0.7s var(--transition-func), opacity 0.7s var(--transition-func);
+}
+.loader_animation.visible{
+    opacity: 1;
+    transform: translateY(0);
 }
 .loader_animation__pourcent{
     position: absolute;
@@ -83,14 +124,13 @@ body{
     z-index: 1;
     display: flex;
     flex-direction: column;
-    height: 45px;
+    height: 25px;
     width: 100%; 
     font-size: var(--font-size-1);
     font-weight: 400;
-    color: var(--main-color);
-    overflow: hidden;
+    color: var(--fourth-color);
 }
-.loader_animation__pourcent > div span{    
+.loader_animation__pourcent > div > span{    
     position: absolute;
     top: 0;
     left: 50%;
@@ -100,9 +140,32 @@ body{
     align-items: center;
     height: 100%;
     min-height: 100%;
+    opacity: 1;
+    transition: top 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
 }
-.loader_animation__pourcent > div span.hide{
+.loader_animation__pourcent > div > span > span{
+    position: relative;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100%;
+    animation: 0.5s ease 0s 1 appearPourcent;
+}
+.loader_animation__pourcent > div > span.hide{
     top: -100%;    
+    opacity: 0;
+    transform: translate(-50%, -10px) rotate(20deg);    
+}
+@keyframes appearPourcent { 
+    0%{
+        opacity: 0;
+        transform: translateY(calc(100% + 10px)) rotate(-10deg);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
 }
 
 .loader_animation__icon{
@@ -137,7 +200,7 @@ body{
     height: 704px;
 }
 .loader_animation__cercle svg{
-    stroke: var(--main-color);
+    stroke: var(--fourth-color);
     width: 100%;
     height: 100%;
 }
@@ -158,7 +221,7 @@ body{
     width: 50px;
     height: 50px;
     stroke: transparent;
-    fill: var(--main-color);
+    fill: var(--fourth-color);
 }
 
 #app{

@@ -15,7 +15,28 @@ class Loader{
         this.icon = element.querySelector('.loader_animation__icon');
         this.cercle = element.querySelector('.loader_animation__cercle');
         this.plane = element.querySelector('.loader_animation__plane');             
-        this.appendPourcent();
+        this.appearAnimation();
+    }
+
+    appearAnimation(){
+        setTimeout(()=>{
+            this.element.querySelector('.loader_animation').classList.add('visible');
+            this.appendPourcent();
+        },900);
+    }
+
+    completeAnimation(){
+        this.element.classList.add('complete');
+        document.querySelector('body').style.overflowY = 'auto';
+        setTimeout(()=>{
+            this.element.style.backgroundColor = 'transparent';
+            this.element.querySelectorAll('*').forEach((element)=>{
+                element.style.display = 'none';
+            });
+        },700);
+        setTimeout(()=>{
+            this.element.style.display = 'none';
+        },1400);
     }
 
     appendPourcent(){
@@ -23,10 +44,13 @@ class Loader{
             return;
         }
 
-        this.value += randomInt(1,5);
+        this.value += randomInt(1,10);
        
-        if(this.value>100){
+        if(this.value>=100){
             this.value = 100;
+            setTimeout(()=>{
+                this.completeAnimation();
+            },250);   
         }
 
         this.setCercle();
@@ -35,7 +59,7 @@ class Loader{
 
         setTimeout(()=>{
             this.appendPourcent();
-        },randomInt(50,150));
+        },randomInt(100,500));
     }
 
     setCercle(){
@@ -56,17 +80,17 @@ class Loader{
 
     setPourcent(){
         const container = this.pourcent.querySelector('.loader_pourcent__text');
-               
-        const pourcentHTML = container.innerHTML;
-
-        container.innerHTML = pourcentHTML + `<span>${this.value} %</span>`;
+        const newPourcent = document.createElement('span');
+        newPourcent.innerHTML = `<span>${this.value}</span>`;
+        container.append(newPourcent);
 
         const spans = this.pourcent.querySelectorAll('.loader_pourcent__text > span:not(:last-child)'); 
-        
-        
+                
         spans.forEach((span,i)=>{
             span.classList.add('hide');
         });
     }
+
+    
 }
 
