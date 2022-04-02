@@ -1,5 +1,9 @@
 @media screen and (max-width:1024px) {
 
+    #cursors{
+        display: none;
+    }
+
     .content{
         position: relative;
     }

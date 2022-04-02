@@ -19,7 +19,7 @@ class Cursors{
     }
 
     moveEvents(){
-        if(this.moveEvent){
+        if(this.moveEvent || window.innerWidth<=1024){
             return;
         }
 

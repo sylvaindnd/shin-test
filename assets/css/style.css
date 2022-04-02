@@ -27,8 +27,6 @@ body{
     font-family: 'Poppins', sans-serif;
     font-size: var(--font-size-4);
     line-height: var(--line-height-2);
-
-    overflow-x: auto; /* temporaire */
 }
 
 #app{
@@ -145,8 +143,6 @@ section{
     justify-content: center;
     align-items: center;
     background-color: var(--third-color);
-
-    display: none; /* temporaire */
 }
 #loader::after{
     content: '';
@@ -191,7 +187,7 @@ section{
     position: absolute;
     bottom: 10%;
     font-size: var(--font-size-2);
-    color: var(--fourth-color);
+    color: var(--main-color);
 }
 
 .loader_animation{
@@ -236,7 +232,7 @@ section{
     width: 100%; 
     font-size: var(--font-size-1);
     font-weight: 400;
-    color: var(--fourth-color);
+    color: var(--main-color);
 }
 .loader_animation__pourcent > div > span{    
     position: absolute;
@@ -308,7 +304,7 @@ section{
     height: 704px;
 }
 .loader_animation__cercle svg{
-    stroke: var(--fourth-color);
+    stroke: var(--main-color);
     width: 100%;
     height: 100%;
 }
@@ -329,7 +325,7 @@ section{
     width: 50px;
     height: 50px;
     stroke: transparent;
-    fill: var(--fourth-color);
+    fill: var(--main-color);
 }
 
 /* destinations section */
@@ -347,7 +343,6 @@ section{
     width: calc(25% - 30px);
     min-width: calc(25% - 30px);
     height: 370px;
-    background-color: green;
     border-radius: 7px;
     overflow: hidden;
     cursor: pointer;
