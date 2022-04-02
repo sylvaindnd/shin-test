@@ -18,6 +18,10 @@ class App{
         window.addEventListener('scroll',()=>{            
             this.scrollEvents();
         });
+        window.addEventListener('resize',()=>{            
+            this.setHeight();   
+            this.scrollContent();  
+        });
     }
 
     scrollEvents(){

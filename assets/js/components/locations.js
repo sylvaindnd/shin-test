@@ -9,6 +9,10 @@ export const locations = () => {
 
     setLocationsDescriptionHeight();
 
+    setTimeout(()=>{
+        setLocationsDescriptionHeight();
+    },500);
+
     window.addEventListener('resize', ()=>{
         setLocationsDescriptionHeight();
     });
